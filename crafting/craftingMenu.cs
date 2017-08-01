@@ -12,11 +12,14 @@ namespace crafting
 {
     public partial class craftingMenu : Form
     {
+        Inventory inventoryForm;
+        PictureBox slot = new PictureBox();
+
         public craftingMenu()
         {
             InitializeComponent();
             this.Location = new Point(100, 100);
-            Form inventoryForm = new Inventory(this);
+            inventoryForm = new Inventory(this);
             inventoryForm.Show();
             inventoryForm.Location = new Point(200 + this.Width, this.Location.Y);
         }
@@ -26,10 +29,46 @@ namespace crafting
 
         }
 
-        public string getFreeSlot()
+        public PictureBox getFreeSlot()
         {
-            //Note: find 1st free slot
-            return this.item1.Name;
+            foreach (PictureBox pb in craftingPanel.Controls.OfType<PictureBox>().ToList())
+            {
+                if (pb.ImageLocation == null)
+                {
+                    return pb;
+                }
+            }
+            return null;
+        }
+
+        private void item1_DoubleClick(object sender, EventArgs e)
+        {
+            slot = inventoryForm.getFreeSlot();
+            if (item1.ImageLocation != null && slot != null)
+            {
+                slot.ImageLocation = this.item1.ImageLocation;
+                this.item1.ImageLocation = null;
+            }
+        }
+
+        private void item2_DoubleClick(object sender, EventArgs e)
+        {
+            slot = inventoryForm.getFreeSlot();
+            if (item2.ImageLocation != null && slot != null)
+            {
+                inventoryForm.getFreeSlot().ImageLocation = this.item2.ImageLocation;
+                this.item2.ImageLocation = null;
+            }
+        }
+
+        private void item3_DoubleClick(object sender, EventArgs e)
+        {
+            slot = inventoryForm.getFreeSlot();
+            if (item3.ImageLocation != null && slot != null)
+            {
+                inventoryForm.getFreeSlot().ImageLocation = this.item3.ImageLocation;
+                this.item3.ImageLocation = null;
+            }
         }
     }
 }
