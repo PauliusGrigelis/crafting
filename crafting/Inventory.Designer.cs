@@ -97,11 +97,11 @@
             this.item1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item1.TabIndex = 0;
             this.item1.TabStop = false;
-            this.item1.DragDrop += new System.Windows.Forms.DragEventHandler(this.item1_DragDrop);
-            this.item1.DragEnter += new System.Windows.Forms.DragEventHandler(this.item1_DragEnter);
+            this.item1.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
+            this.item1.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
             this.item1.DoubleClick += new System.EventHandler(this.item1_DoubleClick);
-            this.item1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.item1_MouseDown);
-            this.item1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.item1_MouseUp);
+            this.item1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
+            this.item1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mouseUp);
             // 
             // item2
             // 
@@ -111,9 +111,10 @@
             this.item2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item2.TabIndex = 0;
             this.item2.TabStop = false;
-            this.item2.DragDrop += new System.Windows.Forms.DragEventHandler(this.item2_DragDrop);
-            this.item2.DragEnter += new System.Windows.Forms.DragEventHandler(this.item2_DragEnter);
+            this.item2.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
+            this.item2.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
             this.item2.DoubleClick += new System.EventHandler(this.item2_DoubleClick);
+            this.item2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             // 
             // item3
             // 
