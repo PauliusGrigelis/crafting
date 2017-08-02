@@ -14,6 +14,8 @@ namespace crafting
     {
         craftingMenu parentForm;
         PictureBox slot = new PictureBox();
+        public PictureBox tempSlot = new PictureBox();
+        public PictureBox itemOnDrag;
 
         public Inventory(Form parentForm)
         {
@@ -25,6 +27,11 @@ namespace crafting
             item3.ImageLocation = @"./item_icons/logo.png";
             item4.ImageLocation = @"./item_icons/rock.png";
             item5.ImageLocation = @"./item_icons/water.png";
+            item1.AllowDrop = true;
+            item2.AllowDrop = true;
+            item3.AllowDrop = true;
+            item4.AllowDrop = true;
+            item5.AllowDrop = true;
         }
 
         public PictureBox getFreeSlot()
@@ -87,6 +94,52 @@ namespace crafting
                 parentForm.getFreeSlot().ImageLocation = this.item5.ImageLocation;
                 this.item5.ImageLocation = null;
             }
+        }
+
+        private void item1_MouseDown(object sender, MouseEventArgs e)
+        {
+            tempSlot.ImageLocation = item1.ImageLocation;
+            itemOnDrag = item1;
+            if (item1.ImageLocation == null) return;
+            if (DoDragDrop(item1.ImageLocation, DragDropEffects.Move) == DragDropEffects.Move)
+            {
+            }
+        }
+
+        private void item1_MouseUp(object sender, MouseEventArgs e)
+        {
+            tempSlot.ImageLocation = null;
+            itemOnDrag = null;
+        }
+
+        private void item1_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+            item1.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void item1_DragDrop(object sender, DragEventArgs e)
+        {
+            itemOnDrag.BorderStyle = BorderStyle.None;
+            item1.BorderStyle = BorderStyle.None;
+            itemOnDrag.ImageLocation = item1.ImageLocation;
+            item1.ImageLocation = tempSlot.ImageLocation;
+            this.Cursor = Cursors.Default;
+        }
+
+        private void item2_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+            item2.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void item2_DragDrop(object sender, DragEventArgs e)
+        {
+            itemOnDrag.BorderStyle = BorderStyle.None;
+            item2.BorderStyle = BorderStyle.None;
+            itemOnDrag.ImageLocation = item2.ImageLocation;
+            item2.ImageLocation = tempSlot.ImageLocation;
+            this.Cursor = Cursors.Default;
         }
     }
 }

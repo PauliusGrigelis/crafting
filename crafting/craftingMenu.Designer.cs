@@ -57,6 +57,8 @@
             this.item1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item1.TabIndex = 2;
             this.item1.TabStop = false;
+            this.item1.DragDrop += new System.Windows.Forms.DragEventHandler(this.item1_DragDrop);
+            this.item1.DragEnter += new System.Windows.Forms.DragEventHandler(this.item1_DragEnter);
             this.item1.DoubleClick += new System.EventHandler(this.item1_DoubleClick);
             // 
             // item2

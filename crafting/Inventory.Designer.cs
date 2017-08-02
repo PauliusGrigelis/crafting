@@ -94,10 +94,14 @@
             this.item1.Location = new System.Drawing.Point(0, 0);
             this.item1.Name = "item1";
             this.item1.Size = new System.Drawing.Size(50, 50);
+            this.item1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item1.TabIndex = 0;
             this.item1.TabStop = false;
-            this.item1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.item1.DragDrop += new System.Windows.Forms.DragEventHandler(this.item1_DragDrop);
+            this.item1.DragEnter += new System.Windows.Forms.DragEventHandler(this.item1_DragEnter);
             this.item1.DoubleClick += new System.EventHandler(this.item1_DoubleClick);
+            this.item1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.item1_MouseDown);
+            this.item1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.item1_MouseUp);
             // 
             // item2
             // 
@@ -107,6 +111,8 @@
             this.item2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item2.TabIndex = 0;
             this.item2.TabStop = false;
+            this.item2.DragDrop += new System.Windows.Forms.DragEventHandler(this.item2_DragDrop);
+            this.item2.DragEnter += new System.Windows.Forms.DragEventHandler(this.item2_DragEnter);
             this.item2.DoubleClick += new System.EventHandler(this.item2_DoubleClick);
             // 
             // item3
@@ -114,9 +120,9 @@
             this.item3.Location = new System.Drawing.Point(100, 0);
             this.item3.Name = "item3";
             this.item3.Size = new System.Drawing.Size(50, 50);
+            this.item3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item3.TabIndex = 0;
             this.item3.TabStop = false;
-            this.item3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item3.DoubleClick += new System.EventHandler(this.item3_DoubleClick);
             // 
             // item4
@@ -124,9 +130,9 @@
             this.item4.Location = new System.Drawing.Point(150, 0);
             this.item4.Name = "item4";
             this.item4.Size = new System.Drawing.Size(50, 50);
+            this.item4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item4.TabIndex = 0;
             this.item4.TabStop = false;
-            this.item4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item4.DoubleClick += new System.EventHandler(this.item4_DoubleClick);
             // 
             // item5
@@ -134,9 +140,9 @@
             this.item5.Location = new System.Drawing.Point(200, 0);
             this.item5.Name = "item5";
             this.item5.Size = new System.Drawing.Size(50, 50);
+            this.item5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item5.TabIndex = 0;
             this.item5.TabStop = false;
-            this.item5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item5.DoubleClick += new System.EventHandler(this.item5_DoubleClick);
             // 
             // item6
@@ -144,48 +150,49 @@
             this.item6.Location = new System.Drawing.Point(250, 0);
             this.item6.Name = "item6";
             this.item6.Size = new System.Drawing.Size(50, 50);
+            this.item6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item6.TabIndex = 0;
             this.item6.TabStop = false;
-            this.item6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // item7
             // 
             this.item7.Location = new System.Drawing.Point(0, 50);
             this.item7.Name = "item7";
             this.item7.Size = new System.Drawing.Size(50, 50);
+            this.item7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item7.TabIndex = 0;
             this.item7.TabStop = false;
-            this.item7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // item8
             // 
             this.item8.Location = new System.Drawing.Point(50, 50);
             this.item8.Name = "item8";
             this.item8.Size = new System.Drawing.Size(50, 50);
+            this.item8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item8.TabIndex = 0;
             this.item8.TabStop = false;
-            this.item8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // item9
             // 
             this.item9.Location = new System.Drawing.Point(100, 50);
             this.item9.Name = "item9";
             this.item9.Size = new System.Drawing.Size(50, 50);
+            this.item9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item9.TabIndex = 0;
             this.item9.TabStop = false;
-            this.item9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // item10
             // 
             this.item10.Location = new System.Drawing.Point(150, 50);
             this.item10.Name = "item10";
             this.item10.Size = new System.Drawing.Size(50, 50);
+            this.item10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item10.TabIndex = 0;
             this.item10.TabStop = false;
-            this.item10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // Inventory
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 465);

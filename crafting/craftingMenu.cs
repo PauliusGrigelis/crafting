@@ -22,6 +22,7 @@ namespace crafting
             inventoryForm = new Inventory(this);
             inventoryForm.Show();
             inventoryForm.Location = new Point(200 + this.Width, this.Location.Y);
+            item1.AllowDrop = true;
         }
 
         private void craftButton_Click(object sender, EventArgs e)
@@ -69,6 +70,20 @@ namespace crafting
                 inventoryForm.getFreeSlot().ImageLocation = this.item3.ImageLocation;
                 this.item3.ImageLocation = null;
             }
+        }
+
+        private void item1_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+            item1.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void item1_DragDrop(object sender, DragEventArgs e)
+        {
+            item1.BorderStyle = BorderStyle.None;
+            inventoryForm.item1.ImageLocation = item1.ImageLocation;
+            item1.ImageLocation = inventoryForm.tempSlot.ImageLocation;
+            this.Cursor = Cursors.Default;
         }
     }
 }
