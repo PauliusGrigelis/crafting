@@ -99,9 +99,8 @@
             this.item1.TabStop = false;
             this.item1.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
             this.item1.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
-            this.item1.DoubleClick += new System.EventHandler(this.item1_DoubleClick);
+            this.item1.DragLeave += new System.EventHandler(this.dragLeave);
             this.item1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
-            this.item1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mouseUp);
             // 
             // item2
             // 
@@ -113,7 +112,7 @@
             this.item2.TabStop = false;
             this.item2.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
             this.item2.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
-            this.item2.DoubleClick += new System.EventHandler(this.item2_DoubleClick);
+            this.item2.DragLeave += new System.EventHandler(this.dragLeave);
             this.item2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             // 
             // item3
@@ -124,7 +123,6 @@
             this.item3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item3.TabIndex = 0;
             this.item3.TabStop = false;
-            this.item3.DoubleClick += new System.EventHandler(this.item3_DoubleClick);
             // 
             // item4
             // 
@@ -134,7 +132,6 @@
             this.item4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item4.TabIndex = 0;
             this.item4.TabStop = false;
-            this.item4.DoubleClick += new System.EventHandler(this.item4_DoubleClick);
             // 
             // item5
             // 
@@ -144,7 +141,6 @@
             this.item5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item5.TabIndex = 0;
             this.item5.TabStop = false;
-            this.item5.DoubleClick += new System.EventHandler(this.item5_DoubleClick);
             // 
             // item6
             // 
