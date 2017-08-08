@@ -14,6 +14,7 @@ namespace crafting
         [STAThread]
         static void Main()
         {
+            //DataAccess.DataContext.GetContext();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new craftingMenu());

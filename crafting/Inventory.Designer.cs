@@ -123,6 +123,10 @@
             this.item3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item3.TabIndex = 0;
             this.item3.TabStop = false;
+            this.item3.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
+            this.item3.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
+            this.item3.DragLeave += new System.EventHandler(this.dragLeave);
+            this.item3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             // 
             // item4
             // 
@@ -132,6 +136,10 @@
             this.item4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item4.TabIndex = 0;
             this.item4.TabStop = false;
+            this.item4.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
+            this.item4.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
+            this.item4.DragLeave += new System.EventHandler(this.dragLeave);
+            this.item4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             // 
             // item5
             // 
@@ -141,6 +149,10 @@
             this.item5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item5.TabIndex = 0;
             this.item5.TabStop = false;
+            this.item5.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
+            this.item5.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
+            this.item5.DragLeave += new System.EventHandler(this.dragLeave);
+            this.item5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             // 
             // item6
             // 
@@ -150,6 +162,10 @@
             this.item6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item6.TabIndex = 0;
             this.item6.TabStop = false;
+            this.item6.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
+            this.item6.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
+            this.item6.DragLeave += new System.EventHandler(this.dragLeave);
+            this.item6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             // 
             // item7
             // 
@@ -159,6 +175,10 @@
             this.item7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item7.TabIndex = 0;
             this.item7.TabStop = false;
+            this.item7.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
+            this.item7.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
+            this.item7.DragLeave += new System.EventHandler(this.dragLeave);
+            this.item7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             // 
             // item8
             // 
@@ -168,6 +188,10 @@
             this.item8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item8.TabIndex = 0;
             this.item8.TabStop = false;
+            this.item8.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
+            this.item8.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
+            this.item8.DragLeave += new System.EventHandler(this.dragLeave);
+            this.item8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             // 
             // item9
             // 
@@ -177,6 +201,10 @@
             this.item9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item9.TabIndex = 0;
             this.item9.TabStop = false;
+            this.item9.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
+            this.item9.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
+            this.item9.DragLeave += new System.EventHandler(this.dragLeave);
+            this.item9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             // 
             // item10
             // 
@@ -186,6 +214,10 @@
             this.item10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.item10.TabIndex = 0;
             this.item10.TabStop = false;
+            this.item10.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
+            this.item10.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
+            this.item10.DragLeave += new System.EventHandler(this.dragLeave);
+            this.item10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             // 
             // Inventory
             // 

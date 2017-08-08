@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using crafting.DataAccess;
+using crafting.Repositories;
+using crafting.Models;
 
 namespace crafting
 {
     public partial class Inventory : Form
     {
+        private readonly DataContext Context;
+
         craftingMenu parentForm;
         PictureBox slot = new PictureBox();
         public PictureBox tempSlot = new PictureBox();
@@ -23,16 +29,30 @@ namespace crafting
         bool isDoubleClick = false;
         int milliseconds = 0;
 
+        List<PictureBox> items = new List<PictureBox>();
+
         public Inventory(Form parentForm)
         {
             this.parentForm = (craftingMenu)parentForm;
             InitializeComponent();
+
+            Context = DataContext.GetContext();
+
             // Iventory fill for debug purposes:
-            item1.ImageLocation = @"./item_icons/boots.png";
-            item2.ImageLocation = @"./item_icons/crap.jpg";
-            item3.ImageLocation = @"./item_icons/logo.png";
-            item4.ImageLocation = @"./item_icons/rock.png";
-            item5.ImageLocation = @"./item_icons/water.png";
+            items.Add(item1);
+            items.Add(item2);
+            items.Add(item3);
+            items.Add(item4);
+            items.Add(item5);
+            int i = 0;
+            using (var repository = new ItemRepository())
+            {
+                foreach(Item item in repository.getItems())
+                {
+                    items[i].ImageLocation = @item.pic;
+                    i++;
+                }
+            }
             item1.AllowDrop = true;
             item2.AllowDrop = true;
             item3.AllowDrop = true;
