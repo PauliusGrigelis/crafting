@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using crafting.DataAccess;
 using crafting.Repositories;
 using crafting.Models;
+using crafting.Other;
 
 namespace crafting
 {
@@ -20,10 +21,6 @@ namespace crafting
 
         craftingMenu parentForm;
         PictureBox slot = new PictureBox();
-        public PictureBox tempSlot = new PictureBox();
-        public PictureBox itemOnDrag;
-        public PictureBox itemSender;
-        public PictureBox itemReceiver;
         Timer timer = new Timer();
         bool isFirstClick = true;
         bool isDoubleClick = false;
@@ -85,22 +82,19 @@ namespace crafting
                 if (isDoubleClick)
                 {
                     slot = parentForm.getFreeSlot();
-                    if (itemSender != null && slot != null)
+                    if (TransferItem.itemSender != null && slot != null)
                     {
-                        parentForm.getFreeSlot().ImageLocation = this.itemSender.ImageLocation;
-                        itemSender.ImageLocation = null;
-                        tempSlot.ImageLocation = null;
-                        itemOnDrag = null;
-                        this.itemSender = null;
+                        parentForm.getFreeSlot().ImageLocation = TransferItem.itemSender.ImageLocation;
+                        TransferItem.itemSender.ImageLocation = null;
+                        TransferItem.tempSlot.ImageLocation = null;
+                        TransferItem.itemSender = null;
                     }
                 }
                 else
                 {
-                    tempSlot.ImageLocation = itemSender.ImageLocation;
-                    itemOnDrag = itemSender;
-                    itemOnDrag.BorderStyle = BorderStyle.None;
-                    DoDragDrop(itemSender.ImageLocation, DragDropEffects.Move);
-                    itemSender.BorderStyle = BorderStyle.None;
+                    TransferItem.tempSlot.ImageLocation = TransferItem.itemSender.ImageLocation;
+                    DoDragDrop(TransferItem.itemSender.ImageLocation, DragDropEffects.Move);
+                    TransferItem.itemSender.BorderStyle = BorderStyle.None;
                 }
                 isFirstClick = true;
                 isDoubleClick = false;
@@ -112,9 +106,9 @@ namespace crafting
         {
             if (isFirstClick)
             {
-                itemSender = (PictureBox)sender;
-                if (itemSender.ImageLocation == null) return;
-                itemSender.BorderStyle = BorderStyle.Fixed3D;
+                TransferItem.itemSender = (PictureBox)sender;
+                if (TransferItem.itemSender.ImageLocation == null) return;
+                TransferItem.itemSender.BorderStyle = BorderStyle.Fixed3D;
                 isFirstClick = false;
                 timer.Start();
             }
@@ -122,32 +116,31 @@ namespace crafting
             {
                 if(milliseconds < 150)
                     isDoubleClick = true;
-                itemSender.BorderStyle = BorderStyle.None;
+                TransferItem.itemSender.BorderStyle = BorderStyle.None;
             }
         }
 
         private void dragEnter(object sender, DragEventArgs e)
         {
-            itemReceiver = (PictureBox)sender;
+            TransferItem.itemReceiver = (PictureBox)sender;
             e.Effect = DragDropEffects.Move;
-            itemReceiver.BorderStyle = BorderStyle.Fixed3D;
+            TransferItem.itemReceiver.BorderStyle = BorderStyle.Fixed3D;
         }
 
         private void dragDrop(object sender, DragEventArgs e)
         {
-            itemOnDrag.BorderStyle = BorderStyle.None;
-            itemReceiver.BorderStyle = BorderStyle.None;
-            itemOnDrag.ImageLocation = itemReceiver.ImageLocation;
-            itemReceiver.ImageLocation = tempSlot.ImageLocation;
+            TransferItem.itemSender.BorderStyle = BorderStyle.None;
+            TransferItem.itemReceiver.BorderStyle = BorderStyle.None;
+            TransferItem.itemSender.ImageLocation = TransferItem.itemReceiver.ImageLocation;
+            TransferItem.itemReceiver.ImageLocation = TransferItem.tempSlot.ImageLocation;
             this.Cursor = Cursors.Default;
             e.Effect = DragDropEffects.None;
         }
 
         private void dragLeave(object sender, EventArgs e)
         {
-            //itemReceiver = null;
-            if(itemReceiver.ImageLocation != itemSender.ImageLocation)
-                itemReceiver.BorderStyle = BorderStyle.None;
+            if(TransferItem.itemReceiver.ImageLocation != TransferItem.itemSender.ImageLocation)
+                TransferItem.itemReceiver.BorderStyle = BorderStyle.None;
         }
     }
 }
