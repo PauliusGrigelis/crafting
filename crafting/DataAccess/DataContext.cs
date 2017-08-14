@@ -19,6 +19,7 @@ namespace crafting.DataAccess
 
         public DbSet<Item> Items { get; set; }
         public DbSet<Craft> Crafts { get; set; }
+        public DbSet<Models.Inventory> Inventories { get; set; }
 
 
         public static DataContext GetContext()
@@ -32,6 +33,7 @@ namespace crafting.DataAccess
 
             modelBuilder.Entity<Item>();
             modelBuilder.Entity<Craft>();
+            modelBuilder.Entity<Models.Inventory>();
 
             base.OnModelCreating(modelBuilder);
         }

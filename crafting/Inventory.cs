@@ -42,7 +42,7 @@ namespace crafting
             items.Add(item4);
             items.Add(item5);
             int i = 0;
-            using (var repository = new ItemRepository())
+            using (var repository = new InventoryRepository())
             {
                 foreach(Item item in repository.getItems())
                 {
