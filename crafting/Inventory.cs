@@ -26,6 +26,8 @@ namespace crafting
         bool isDoubleClick = false;
         int milliseconds = 0;
 
+        public List<PictureBox> tempItems = new List<PictureBox>();
+
         List<PictureBox> items = new List<PictureBox>();
 
         public Inventory(Form parentForm)
@@ -84,7 +86,9 @@ namespace crafting
                     slot = parentForm.getFreeSlot();
                     if (TransferItem.itemSender != null && slot != null)
                     {
-                        parentForm.getFreeSlot().ImageLocation = TransferItem.itemSender.ImageLocation;
+                        PictureBox tempItem = parentForm.getFreeSlot();
+                        tempItem.ImageLocation = TransferItem.itemSender.ImageLocation;
+                        parentForm.tempItems.Add(tempItem);
                         TransferItem.itemSender.ImageLocation = null;
                         TransferItem.tempSlot.ImageLocation = null;
                         TransferItem.itemSender = null;
@@ -133,6 +137,8 @@ namespace crafting
             TransferItem.itemReceiver.BorderStyle = BorderStyle.None;
             TransferItem.itemSender.ImageLocation = TransferItem.itemReceiver.ImageLocation;
             TransferItem.itemReceiver.ImageLocation = TransferItem.tempSlot.ImageLocation;
+            PictureBox tempItem = TransferItem.itemReceiver;
+            tempItems.Add(tempItem);
             this.Cursor = Cursors.Default;
             e.Effect = DragDropEffects.None;
         }

@@ -22,6 +22,8 @@ namespace crafting
         bool isDoubleClick = false;
         int milliseconds = 0;
 
+        public List<PictureBox> tempItems = new List<PictureBox>();
+
         public craftingMenu()
         {
             InitializeComponent();
@@ -42,12 +44,22 @@ namespace crafting
         {
             using (var repository = new CraftRepository())
             {
-                List<string> tempList = new List<string>();
-                tempList.Add(Convert.ToString(item1.ImageLocation));
-                tempList.Add(Convert.ToString(item2.ImageLocation));
-                var result = repository.craftResult(tempList);
-                item2.ImageLocation = null;
-                item1.ImageLocation = result.pic;
+                List<string> items = new List<string>();
+                foreach(PictureBox box in tempItems)
+                {
+                    items.Add(box.ImageLocation);
+                }
+                var result = repository.craftResult(items);
+                if (result != null)
+                {
+                    foreach (PictureBox box in tempItems)
+                    {
+                        box.ImageLocation = null;
+                    }
+                    getFreeSlot().ImageLocation = result.pic;
+                }
+                else
+                    MessageBox.Show("Invalid receipt");
             }
         }
 
@@ -75,7 +87,9 @@ namespace crafting
                     slot = inventoryForm.getFreeSlot();
                     if (TransferItem.itemSender != null && slot != null)
                     {
-                        inventoryForm.getFreeSlot().ImageLocation = TransferItem.itemSender.ImageLocation;
+                        PictureBox tempItem = inventoryForm.getFreeSlot();
+                        tempItem.ImageLocation = TransferItem.itemSender.ImageLocation;
+                        inventoryForm.tempItems.Add(tempItem);
                         TransferItem.itemSender.ImageLocation = null;
                         TransferItem.tempSlot.ImageLocation = null;
                         TransferItem.itemSender = null;
@@ -126,6 +140,8 @@ namespace crafting
             TransferItem.itemReceiver.BorderStyle = BorderStyle.None;
             TransferItem.itemSender.ImageLocation = TransferItem.itemReceiver.ImageLocation;
             TransferItem.itemReceiver.ImageLocation = TransferItem.tempSlot.ImageLocation;
+            PictureBox tempItem = TransferItem.itemReceiver;
+            tempItems.Add(tempItem);
             this.Cursor = Cursors.Default;
             e.Effect = DragDropEffects.None;
         }
